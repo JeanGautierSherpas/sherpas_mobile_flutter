@@ -93,11 +93,11 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 100,
-                  width: 100,
+                  height: 50,
+                  width: 50,
                   child: SvgPicture.asset("assets/sherpas_logos.svg"),
                 ),
-                const Text("Sherpas",
+                const Text("Les Sherpas",
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 30)),

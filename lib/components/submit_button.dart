@@ -13,7 +13,7 @@ class SubmitButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () async {
-        print('hello');
+        print("hello: $email $password");
       },
       child: const Text('Login'),
     );

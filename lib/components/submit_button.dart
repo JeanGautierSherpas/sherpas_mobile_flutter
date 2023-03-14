@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:sherpas_mobile_flutter/pages/chat_page.dart';
 
 class SubmitButton extends StatelessWidget {
   const SubmitButton({
@@ -26,6 +27,13 @@ class SubmitButton extends StatelessWidget {
             body: jsonEncode(
                 <String, String>{"username": email, "password": password}),
           );
+          if (response.statusCode == 201) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const ChatPage(title: "Messenger")),
+            );
+          }
           print(jsonDecode(response.body));
         } catch (e) {
           print(e);

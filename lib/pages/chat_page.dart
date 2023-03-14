@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:sherpas_mobile_flutter/pages/home_page.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key, required this.title});
@@ -48,7 +50,24 @@ class _ChatPagePageState extends State<ChatPage> {
                     padding: const EdgeInsets.all(16.0),
                     textStyle: const TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () async {
+                    try {
+                      await http.get(
+                        Uri.http('localhost:3333', '/auth/logout'),
+                        headers: <String, String>{
+                          'Content-Type': 'application/json; charset=UTF-8',
+                        },
+                      );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const MyHomePage(title: "Login Form")),
+                      );
+                    } catch (e) {
+                      print(e);
+                    }
+                  },
                   child: const Text('Gradient Logout'),
                 ),
               ])),

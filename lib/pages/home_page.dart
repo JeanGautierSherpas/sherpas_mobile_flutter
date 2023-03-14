@@ -74,8 +74,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(fontSize: 30)),
               ],
             ),
+            const SizedBox(height: 30),
             LoginEmail(emailController: emailController),
+            const SizedBox(height: 30),
             LoginPassword(passwordController: passwordController),
+            const SizedBox(height: 30),
             SubmitButton(
                 email: emailController.text, password: passwordController.text),
           ],
